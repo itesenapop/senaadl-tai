@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;}
+.p1{
+  font-size: 18px;
+  font-weight: bold;
+}
+.p2{
+  color: #325fda;
+  font-size: 24px;}
+
+.p3{color: red;
+  font-size: 24px;
+  font-weight: bold;
+}
+.p4{color: blue; font-weight: bold;}
+
+.p5{
+  color: #325fda; 
+  font-size: 24px;
+}
+.button {
+      background-color: #ffffff;
+      /* Green */
+      border: none;
+      color: #325fda;
+      border: 2px solid #325fda;
+      border-radius: 8px;
+      padding: 15px 40px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 4px 2px;
+      cursor: pointer;
+}
+
+    .div-1 {
+        background-color: #eeeeee;
+        color: #325fda;
+    }
+
+
+    body {
+ background-color:  #ffffff; 
+ 
+     /*background-image: url('image-background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%; */
+
+}
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #325fda;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  color: #325fda; 
+  font-size: 24px;
+}
+input[type=text]:focus {
+  border: 3px solid #325fda;
+}
+  </style>
+
+  <script>
+
+function ba_chk1(a){ ba1 =a; document.getElementById("ba1").innerHTML = ba1; }
+function ba_chk2(a){ ba2=a; document.getElementById("ba2").innerHTML = ba2; }
+function ba_chk3(a){ ba3=a; document.getElementById("ba3").innerHTML = ba3; }
+function ba_chk4(a){ ba4=a; document.getElementById("ba4").innerHTML = ba4; }
+function ba_chk5(a){ ba5=a; document.getElementById("ba5").innerHTML = ba5; }
+function ba_chk6(a){ ba6=a; document.getElementById("ba6").innerHTML = ba6; }
+function ba_chk7(a){ ba7=a; document.getElementById("ba7").innerHTML = ba7; }
+function ba_chk8(a){ ba8=a; document.getElementById("ba8").innerHTML = ba8; }
+function ba_chk9(a){ ba9=a; document.getElementById("ba9").innerHTML = ba9; }
+function ba_chk10(a){ ba10=a; document.getElementById("ba10").innerHTML = ba10; }
+
+function form_1_call(){  
+  if(isNaN(Number(ba1)) == true){ba1 = 0;}; 
+  if(isNaN(Number(ba2)) == true){ba2 = 0;}; 
+  if(isNaN(Number(ba3)) == true){ba3 = 0;}; 
+  if(isNaN(Number(ba4)) == true){ba4 = 0;}; 
+  if(isNaN(Number(ba5)) == true){ba5 = 0;}; 
+  if(isNaN(Number(ba6)) == true){ba6 = 0;}; 
+  if(isNaN(Number(ba7)) == true){ba7 = 0;}; 
+  if(isNaN(Number(ba8)) == true){ba8 = 0;}; 
+  if(isNaN(Number(ba9)) == true){ba9 = 0;}; 
+  if(isNaN(Number(ba10)) == true){ba10 = 0;};  
+
+  bb=ba1+ba2+ba3+ba4+ba5+ba6+ba7+ba8+ba9+ba10;
+
+  document.getElementById("basum_score").innerHTML = bb; 
+  document.getElementById("part0").hidden = false; 
+  document.getElementById("part1").hidden = false; 
+  document.getElementById("form_1").hidden = true; 
+
+  if(bb<=4){ result1 ="ติดเตียง";
+    document.getElementById("form_2").hidden = false;
+  }
+  else if(bb>=5&&bb<=11){ result1 ="ติดบ้าน";
+    document.getElementById("form_3").hidden = false;
+    }
+  else if(bb>=12){  result1 ="ติดสังคม";}
+
+  if(Number(bb)>=0){document.getElementById("result1").innerHTML = result1;}
+  else {document.getElementById("result1").innerHTML =" ";}
+
+}
+</script>
+<script>
+
+  window.onload = function() {
+    setInterval(function(){
+        var date = new Date();
+        var displayDate = date.toLocaleDateString("th-TH", { year: 'numeric',  month: 'long',  day: 'numeric'});
+        var displayTime = date.toLocaleTimeString("th-TH", { hour12: false, hour: '2-digit', minute:'2-digit' });
+
+        document.getElementById('datetime').innerHTML = displayDate + " " + displayTime+" น.";
+    }, 1000); // 1000 milliseconds = 1 second
+  }
+
+  function form_0_call(){
+    //Check เลขบัตรประชาชน เอาเงื่อนไขออก จาก !=13 เป็น >=999
+    if(document.getElementById("cid").value.length >=999){alert("เลขบัตรประชาชนไม่ถูกต้อง");}
+    else{
+        document.getElementById("form_0").hidden = true;
+        document.getElementById("form_1").hidden = false;
+      }
+   
+    document.getElementById("res_ptname1").innerHTML = document.getElementById("ptname1").value;
+    document.getElementById("res_ptname").innerHTML = document.getElementById("ptname").value;
+    document.getElementById("res_age").innerHTML = document.getElementById("age").value;
+    document.getElementById("res_sex").innerHTML = document.getElementById("sex").value;
+    document.getElementById("res_cid").innerHTML = document.getElementById("cid").value;
+    } 
+
+</script>
+</head>
+
+<body>
+
+  <form id="form_0" action="javascript:form_0_call();" target="_self">
+    <center><h1 class="p2">ข้อมูล ผู้รับการประเมิน ADL & TAI</h1></center>
+
+    <label for="ptname1" class="p5">ชื่อ - สกุล <span style="color:red;">ผู้ประเมิน</span></label>
+    <input type="text" id="ptname1" name="ptname1" required> <br><br>
+
+    <label for="ptname" class="p5">ชื่อ - สกุล <span style="color:red;">ผู้รับการประเมิน</span> </label>
+    <input type="text" id="ptname" name="ptname" required> <br><br>
+
+    <label for="age" class="p5">อายุ</label>
+    <input type="text" id="age" name="age" required><br><br>
+
+    <label for="sex" class="p5" >เพศ   </label>
+    <input type="text" id="sex" name="sex" required><br><br>
+
+    <label for="cid" class="p5" >เลขบัตรประชาชน</label>
+    <input type="text" id="cid" name="cid"><br><br>
+ 
+    <center><input type="submit" class="button button1"></center>
+    
+  </form>
+   
+<form  id="form_1" action="javascript:form_1_call();" target="_self" hidden>
+  <div id ="header1"><center><h1 class="p2">แบบประเมินส่วนที่ 1 คัดกรอง Barthel ADL</h1></center></div>
+    <div class="div-1">
+      <p class="p1">1. Feeding (รับประทานอาหารเมื่อเตรียมสำรับไว้ให้เรียบร้อยต่อหน้า) <span id ="ba1" class="p3"></span></p>
+        <input type="radio" id="ans1" name="answer1" onclick="ba_chk1(0);" required>ไม่สามารถตักอาหารเข้าปากได้ ต้องมีคนป้อนให้<br>
+        <input type="radio" id="ans1" name="answer1" onclick="ba_chk1(1);" >ตักอาหารเองได้แต่ต้องมีคนช่วย เช่น ช่วยใช้ช้อนตัก เตรียมไว้ให้ หรือตัดเป็นชิ้นเล็กๆไว้ล่วงหน้า<br>
+        <input type="radio" id="ans1" name="answer1" onclick="ba_chk1(2);" >ตักอาหารและช่วยตัวเองได้เป็นปกติ
+    </div> 
+  <div class="div-1">
+    <p class="p1">2. Grooming (ล้างหน้า หวีผม แปรงฟัน โกนหนวด ในระยะเวลา 24 - 48 ชั่วโมงที่ผ่านมา) <span id ="ba2" class="p3"></span></p>
+      <input type="radio" id="ans2" name="answer2" onclick="ba_chk2(0);" required >ต้องการความช่วยเหลือ<br>
+      <input type="radio" id="ans2" name="answer2" onclick="ba_chk2(1);" >ทำเองได้ (รวมทั้งที่ทำได้เองถ้าเตรียมอุปกรณ์ไว้ให้)
+  </div>
+
+  <div class="div-1">
+    <p class="p1">3. Transfer (ลุกนั่งจากที่นอน หรือจากเตียงไปยังเก้าอี้) <span id ="ba3" class="p3"></span></p>
+      <input type="radio" id="ans3" name="answer3" onclick="ba_chk3(0);" required >ไม่สามารถนั่งได้ (นั่งแล้วจะล้มเสมอ) หรือต้องใช้คนสองคนช่วยกันยกขึ้น<br>
+      <input type="radio" id="ans3" name="answer3" onclick="ba_chk3(1);" >ต้องการความช่วยเหลืออย่างมากจึงจะนั่งได้ เช่น ต้องใช้คนที่แข็งแรงหรือมีทักษะ 1 คน หรือใช้คนทั่วไป 2 คนพยุงหรือดันขึ้นมาจึงจะนั่งอยู่ได้<br>
+      <input type="radio" id="ans3" name="answer3" onclick="ba_chk3(2);" >ต้องการความช่วยเหลือบ้าง เช่น บอกให้ทำตาม หรือช่วยพยุงเล็กน้อย หรือต้องมีคนดูแลเพื่อความปลอดภัย<br>
+      <input type="radio" id="ans3" name="answer3" onclick="ba_chk3(3);" >ทำได้เอง
+  </div>
+
+  <div class="div-1">
+    <p class="p1">4. Toilet use (ใช้ห้องน้ำ) <span id ="ba4" class="p3"></span></p>
+      <input type="radio" id="ans4" name="answer4" onclick="ba_chk4(0);"required >ช่วยตัวเองไม่ได้<br>
+      <input type="radio" id="ans4" name="answer4" onclick="ba_chk4(1);" >ทำเองได้บ้าง (อย่างน้อยทำความสะอาดตัวเองได้หลังจากเสร็จธุระ) แต่ต้องการความช่วยเหลือบางอย่าง<br>
+      <input type="radio" id="ans4" name="answer4" onclick="ba_chk4(2);" >ช่วยตัวเองได้ดี (ขึ้นนั่งและลงจากโถส้วมเองได้ ทำความสะอาดได้เรียบร้อยหลังจากเสร็จธุระ ถอดใส่เสื้อผ้าได้เรียบร้อย)<br>
+
+  </div>
+
+  <div class="div-1">
+    <p class="p1">5. Mobility (การเคลื่อนที่ภายในห้องหรือบ้าน) <span id ="ba5" class="p3"></span></p>
+      <input type="radio" id="ans5" name="answer5" onclick="ba_chk5(0);" required >เคลื่อนที่ไปไหนไม่ได้<br>
+      <input type="radio" id="ans5" name="answer5" onclick="ba_chk5(1);" >ต้องใช้รถเข็นช่วยตัวเองให้เคลื่อนที่ได้เอง (ไม่ต้องมีคนเข็นให้) และสามารถเข้าออกมุมห้อง หรือประตูได้<br>
+      <input type="radio" id="ans5" name="answer5" onclick="ba_chk5(2);" >เดินหรือเคลื่อนที่โดยมีคนช่วย เช่น พยุง หรือบอกให้ทำตาม หรือต้องให้ความสนใจดูแลเพื่อความปลอดภัย<br>
+      <input type="radio" id="ans5" name="answer5" onclick="ba_chk5(3);" >เดินหรือเคลื่อนที่ได้เอง<br>
+  </div>
+
+  <div class="div-1">
+    <p class="p1">6. Dressing (การสวมใส่เสื้อผ้า) <span id ="ba6" class="p3"></span></p>
+      <input type="radio" id="ans6" name="answer6" onclick="ba_chk6(0);" required >ต้องมีคนสวมใส่ให้ ช่วยตัวเองแทบไม่ได้หรือได้น้อย<br>
+      <input type="radio" id="ans6" name="answer6" onclick="ba_chk6(1);" >ช่วยตัวเองได้ประมาณร้อยละ 50 ที่เหลือต้องมีคนช่วย<br>
+      <input type="radio" id="ans6" name="answer6" onclick="ba_chk6(2);" >ช่วยตัวเองได้ดี (รวมทั้งการติดกระดุม รูดซิบ หรือใช้เสื้อผ้าที่ดัดแปลงให้เหมาะสมก็ได้)<br>
+  </div>
+
+  <div class="div-1">
+    <p class="p1">7. Stairs (การขึ้นลงบันได 1 ชั้น) <span id ="ba7" class="p3"></span></p>
+      <input type="radio" id="ans7" name="answer7" onclick="ba_chk7(0);" required >ไม่สามารถทำได้<br>
+      <input type="radio" id="ans7" name="answer7" onclick="ba_chk7(1);" >ต้องการคนช่วย<br>
+      <input type="radio" id="ans7" name="answer7" onclick="ba_chk7(2);" >ขึ้นลงได้เอง (ถ้าต้องใช้เครื่องช่วยเดิน เช่น walker จะต้องเอาขึ้นลงได้ด้วย)<br>
+  </div>
+
+  <div class = "div-1">  <p class="p1">8. Bathing (การอาบน้ำ) <span id ="ba8" class="p3"></span></p>
+      <input type="radio" id="ans8" name="answer8" onclick="ba_chk8(0);" required>ต้องมีคนช่วยหรือทำให้<br>
+      <input type="radio" id="ans8" name="answer8" onclick="ba_chk8(1);" >อาบน้ำเองได้<br>
+  </div>
+
+  <div class="div-1">
+    <p class="p1">9. Bowels (การกลั้นถ่ายอุจจาระในระยะ 1 สัปดาห์ที่ผ่านมา) <span id ="ba9" class="p3"></span></p>
+      <input type="radio" id="ans9" name="answer9" onclick="ba_chk9(0);" required >กลั้นไม่ได้ หรือต้องสวนอุจจาระอยู่เสมอ<br>
+      <input type="radio" id="ans9" name="answer9" onclick="ba_chk9(1);" >กลั้นไม่ได้บางครั้ง (เป็นน้อยกว่า 1 ครั้งต่อสัปดาห์)<br>
+      <input type="radio" id="ans9" name="answer9" onclick="ba_chk9(2);" >กลั้นได้เป็นปกติ<br> 
+  </div>
+
+  <div class="div-1">
+    <p class="p1">10. Bladder (การกลั้นปัสสาวะในระยะ 1 สัปดาห์ที่ผ่านมา) <span id ="ba10" class="p3"></span></p>
+      <input type="radio" id="ans10" name="answer10" onclick="ba_chk10(0);" required >กลั้นไม่ได้ หรือใส่สายสวนปัสสาวะแต่ไม่สามารถดูแลเองได้<br>
+      <input type="radio" id="ans10" name="answer10" onclick="ba_chk10(1);" >กลั้นไม่ได้บางครั้ง (เป็นน้อยกว่าวันละ 1 ครั้ง)<br>
+      <input type="radio" id="ans10" name="answer10" onclick="ba_chk10(2);" >กลั้นได้เป็นปกติ<br>
+  </div>
+
+  <center><input type="submit" class="button button1"></center>  
+
+</form>
+<div id="part0" hidden>
+  <center> 
+    <h2 class="p2">ผู้รับการประเมิน <span id ="res_ptname" style="color:blue;"></span> เพศ <span id ="res_sex" style="color:blue;"></span>  อายุ <span id ="res_age" style="color:blue;"></span> ปี เลขประจำตัวประชาชน <span id ="res_cid" style="color:blue;"></span></h2>
+    <h2 class="p2">ประเมินโดย <span id ="res_ptname1" style="color:blue;"></span> เมื่อวันที่ <span id="datetime" style="color:blue;"></span></h2>
+  </center>
+</div>
+    <div id="part1" hidden >
+      <center> 
+        <h2 class="p2" >ผล ADL = <span id ="basum_score" style="color:red;"></span>  คะแนน กลุ่ม <span id ="result1" style="color:red;"></span></h2>
+      </center>
+    </div>
+    <div id="part2" hidden >
+      <center><h1 class="p2">แบบประเมินส่วนที่ 2 TAI</h1></center>
+    </div>
+<form id="form_2" action="javascript:form_2_call();" target="_self" hidden>
+  <script>
+
+    function check21(a1) { /*Mobility*/
+      sc21 = a1; document.getElementById("score21").innerHTML = a1;
+    }
+    function check22(a1) { /*Feed*/ 
+      sc22 = a1; document.getElementById("score22").innerHTML = a1;
+    }
+
+    function form_2_call(){ 
+      document.getElementById("part4").hidden = false;    
+      document.getElementById("part0").hidden = false;  
+      document.getElementById("form_2").hidden = true;
+
+      if(sc22<=2){result2="I1"; result3="4.2";  }
+      else if(sc22==3){result2 ="I2"; result3="4.1"; }
+      else if(sc22>=4 && sc22<=5){result2 ="I3"; result3="3"; }
+
+      document.getElementById("result2").innerHTML = result2;
+      document.getElementById("result3").innerHTML = result3;
+    }
+  </script>
+
+  <div id = "form_mobi_1" class="div-1">
+  <p class="p1">- การเคลื่อนไหว/ เคลื่อนที่ (Mobility)  <span id="score21" class="p3"></span></p>
+    <input type="radio" id="ans21" name="answer21" onclick="check21(0)" >ไม่สามารถเปลี่ยนท่าเมื่ออยู่บนเตียง<br>
+    <input type="radio" id="ans21" name="answer21" onclick="check21(1)" >เปลี่ยนท่าขณะนอนบนเตียงได้ และ/หรือใช้มือเข็นรถเข็นเองไม่ได้<br>
+    <input type="radio" id="ans21" name="answer21" onclick="check21(2)" required>นั่งข้างเตียงเองและลุกยืนข้างเตียงเองได้โดยไม่ต้องมีคนช่วย ใช้มือเข็นรถเข็นเองได้<br>
+  </div>
+
+  <div id = "form_feed" class="div-1">
+    <p class="p1">- การรับประทานอาหาร (Feed)  <span id="score22" class="p3"></span></p>
+      <input type="radio" id="ans22" name="answer22" onclick="check22(0)" >ให้สารอาหารทางหลอดเลือดดำ<br>
+      <input type="radio" id="ans22" name="answer22" onclick="check22(1)" >NG หรือใส่สายให้อาหารทางช่องท้อง เช่น gastrostomy ileostomy<br>
+      <input type="radio" id="ans22" name="answer22" onclick="check22(2)" >ต้องมีคนป้อน แต่มีปัญหากลืนลำบาก ต้องกินอาหารอ่อนๆ<br>
+      <input type="radio" id="ans22" name="answer22" onclick="check22(3)" >ต้องมีคนป้อน กลืนอาหารได้ปกติ<br>
+      <input type="radio" id="ans22" name="answer22" onclick="check22(4)" >กินอาหารเองได้ แต่หกเลอะเทอะ <br>
+      <input type="radio" id="ans22" name="answer22" onclick="check22(5)" required>กินอาหารเองได้ ไม่มีหกเลอะเทอะ<br>
+  </div>  
+  <center><input type="submit" class="button button1"></center>
+</form>
+<form id="form_3" action="javascript:form_3_call();" target="_self" hidden>
+  <script>
+    function check31(a1) { /* mobi*/
+      sc31 = a1; document.getElementById("score31").innerHTML = a1;
+    }
+    function check32(a1) { /*Confused*/
+      sc32 = a1; document.getElementById("score32").innerHTML = a1;     
+    }
+    function check33(a1) {/*feed*/
+      sc33 = a1; document.getElementById("score33").innerHTML = a1;
+    }
+    function check34(a1) { /*toilet*/
+      sc34 = a1; document.getElementById("score34").innerHTML = a1; 
+    }
+    function form_3_call(){
+      if(bb>=5&&bb<=11){
+        document.getElementById("part4").hidden = false; 
+        document.getElementById("part0").hidden = false;     
+        document.getElementById("form_3").hidden = true;
+        if(sc32 <=3){
+          if(sc33<=3 && sc34<=3){result2="C2"; result3="2"}
+          else if((sc33==4 && sc34==3)|| (sc33==3 && sc34==4)){result2="C3"; result3="2"}
+          else if(sc33>=4 && sc34>=4){result2="C4"; result3="2"}
+        }
+        else if(sc32 >3){
+        if(sc33<=3 || sc34<=3){result2="B3"; result3="1"}
+        }
+        document.getElementById("result2").innerHTML = result2;
+        document.getElementById("result3").innerHTML = result3;
+      }
+    }
+  </script>
+  <div id = "form_mobi_2" class="div-1">
+    <p class="p1">- การเคลื่อนไหว/ เคลื่อนที่ (Mobility)  <span id="score31" class="p3"></span></p>
+      <input type="radio" id="ans31" name="answer31" onclick="check31(3)" >เดินพื้นราบ แต่ต้องมีอุปกรณ์ช่วย<br>
+      <input type="radio" id="ans31" name="answer31" onclick="check31(4)" >เดินพื้นราบโดยไม่ต้องมีอุปกรณ์<br>
+      <input type="radio" id="ans31" name="answer31" onclick="check31(5)" required>ขึ้นบันไดเองได้โดยไม่ต้องมีอุปกรณ์หรือคนช่วย<br>
+  </div>
+
+  <div id = "form_conf" class="div-1"> 
+    <p class="p1">- ด้านความคิด ความจำ การรับรู้ (Confuse)  <span id="score32" class="p3"></span></p>
+      <input type="radio" id="ans32" name="answer32" onclick="check32(0)" >ไม่ตอบสนองต่อสิ่งเร้า<br>
+      <input type="radio" id="ans32" name="answer32" onclick="check32(1)" >มีการตอบสนองต่อสิ่งเร้า แต่ บอกชื่อ คน วัน เวลา สถานที่ไม่ได้ และมีปัญหาพฤติกรรมรุนแรง (เอะอะ โวยวาย ด่าทอ)<br>
+      <input type="radio" id="ans32" name="answer32" onclick="check32(2)" >บอกชื่อ คน วัน เวลา สถานที่ไม่ได้ และ ไม่มีปัญหาพฤติกรรมรุนแรง <br>
+      <input type="radio" id="ans32" name="answer32" onclick="check32(3)" >บอกชื่อ คน วัน เวลา สถานที่ได้ แต่มีปัญหาที่ส่งผลกับชีวิตประจำวัน เช่น ลืมของจนทะเลาะกับญาติ<br>
+      <input type="radio" id="ans32" name="answer32" onclick="check32(4)" >ตัดสินใจช้า คิดช้า ลืม แต่ไม่ส่งผลกับชีวิตประจำวัน<br>
+      <input type="radio" id="ans32" name="answer32" onclick="check32(5)" required>ความคิด ความจำดี ปกติ<br>
+  </div>
+  
+  <div id = "form_feed" class="div-1">
+    <p class="p1">- การรับประทานอาหาร (Feed)  <span id="score33" class="p3"></span></p>
+      <input type="radio" id="ans33" name="answer33" onclick="check33(0)" >ให้สารอาหารทางหลอดเลือดดำ<br>
+      <input type="radio" id="ans33" name="answer33" onclick="check33(1)" >NG หรือใส่สายให้อาหารทางช่องท้อง เช่น gastrostomy ileostomy<br>
+      <input type="radio" id="ans33" name="answer33" onclick="check33(2)" >ต้องมีคนป้อน แต่มีปัญหากลืนลำบาก ต้องกินอาหารอ่อนๆ<br>
+      <input type="radio" id="ans33" name="answer33" onclick="check33(3)" >ต้องมีคนป้อน กลืนอาหารได้ปกติ<br>
+      <input type="radio" id="ans33" name="answer33" onclick="check33(4)" >กินอาหารเองได้ แต่หกเลอะเทอะ <br>
+      <input type="radio" id="ans33" name="answer33" onclick="check33(5)" required>กินอาหารเองได้ ไม่มีหกเลอะเทอะ<br>
+  </div>
+    
+  <div id="form_toi" class="div-1">
+      <p class="p1">- การขับถ่าย (Toilet)  <span id="score34" class="p3"></span></p>
+      <input type="radio" id="ans34" name="answer34" onclick="check34(0)" >Retain foley’s cath  , Ostomy ที่ต้องมีคนดูแล<br>
+      <input type="radio" id="ans34" name="answer34" onclick="check34(1)" >เปลี่ยนผ้าอ้อมยาก อาจต้องมีคนช่วยเปลี่ยนผ้าอ้อม 2 คน, อาจมีปัสสาวะ อุจจาระบนเตียงเลอะเทอะ<br>
+      <input type="radio" id="ans34" name="answer34" onclick="check34(2)" >เปลี่ยนผ้าอ้อมง่าย ผู้ป่วยร่วมมือในการเปลี่ยนผ้าอ้อมดี<br>
+      <input type="radio" id="ans34" name="answer34" onclick="check34(3)" >ใช้ผ้าอ้อมแค่บางครั้ง หรือต้องมีคนช่วยพาไปเข้าห้องน้ำ หรือต้องใช้อุปกรณ์ช่วย<br>
+      <input type="radio" id="ans34" name="answer34" onclick="check34(4)" >ไม่ต้องใช้ผ้าอ้อม (ยกเว้น เดินทางไกล,ไปเที่ยว) หรือ ไปเข้าห้องน้ำคนเดียวได้ หรือ มี Ostomy ที่ทำได้เอง<br>
+      <input type="radio" id="ans34" name="answer34" onclick="check34(5)" required>ไปเข้าห้องน้ำคนเดียวได้และทำความสะอาดได้เอง (ทำได้เองอย่างน้อย 2 สัปดาห์)<br>
+  </div >
+  <center><input type="submit" class="button button1"></center>
+</form>
+    <div id = part4 hidden>
+      <center>
+        <h2 class="p2">TAI =  <span id ="result2" style="color:red;"></span> กลุ่ม <span id ="result3" style="color:red;"></span></h2> 
+      </center>
+    </div>
+</body>
+
+</html>
